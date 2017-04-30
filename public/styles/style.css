@@ -1,0 +1,331 @@
+/*общие стили*/
+.navbar-default{
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    /*display: block;*/
+    /*box-sizing: border-box;*/
+
+}
+.header {
+    width: 100%;
+    height: 230px;
+    background: url(../images/header.jpg) no-repeat;
+    /*background-size: cover;*/
+    position: relative;
+}
+.headerMenu {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    opacity: 0.9;
+}
+.headerLogotype {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 230px;
+    background: rgba(255,255,255,0.8);
+    z-index: 20;
+    margin-left: 20px;
+}
+.container-fluid {
+    margin-left: 200px;
+}
+
+.headerLogo {
+    width: 135px;
+    height: 155px;
+    display: block;
+    margin: 30px 0 0 32px;
+    background: url(../images/logo.png);
+}
+
+.footer {
+    display: inline-block;
+    position: relative;
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    color: black; /* Цвет текста */
+    width: 100%; /* Ширина слоя */
+}
+.wrapper {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 10px;
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    position: relative;
+    display: inline-block;
+}
+.footerBack {
+    background: url(../images/footer.jpg);
+    background-size: cover;
+    margin-top: 20px;
+    width: 100%;
+    height: 230px;
+    position: relative;
+}
+#footer1 {
+    font-size: x-small;
+}
+#maps {
+    display: block;
+    margin: 20px;
+    margin-left: 130px;
+}
+#bs-example-navbar-collapse-1 {
+    background-color: #f8f8f8;
+    opacity: 0.9;
+}
+
+
+.catalogueItem {
+    height: 300px;
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+h2{
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.row{
+    margin-left: 130px;
+}
+#text {
+    margin-left: 40px;
+    margin-right: 50px;
+}
+#imgGoods{
+    position: relative;
+    max-width:100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+
+}
+.catalogueItem button {
+    background-color: #cc0000;
+    border: none;
+    color: white;
+    position: static;
+
+}
+.contactsLeft {
+    float: left;
+    width: 50%;
+    margin-bottom: 20px;
+    padding-top: 30px;
+}
+.contactsRight {
+    float: left;
+    width: 50%;
+}
+.feedBack {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    float: right;
+    margin-bottom: 30px;
+}
+.btn-red, .addCart{
+    background: #ed1c24;
+    color: #fff;
+    border: none;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    padding: 0 15px;
+    margin: 0;
+    font-weight: 700;
+}
+.btn-red:hover {
+    background: #ac1c2b;
+    color: #fff;
+    border: none;
+}
+.feedBack label button {
+    height: 40px;
+    padding: 0 30px;
+}
+
+#backToMain {
+font-size: medium;
+}
+
+.messageCart {
+    padding: 3px;
+    background-color: green;
+    display: none;
+    /*position: absolute;*/
+    color: white;
+    font-size: 13px;
+    width: inherit;
+}
+#top {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 40px;
+    height: 40px;
+    line-height: 34px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    z-index: 500;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+}
+
+.catalogueListInside {
+
+}
+#item_photo {
+    vertical-align: top;
+    display: inline;
+}
+
+.catalogueItemDescription {
+    padding-bottom: 20px;
+    line-height: 18px;
+    display: inline;
+    position: absolute;
+}
+
+.buyOrder {
+    background-color: #cc0000;
+    border: none;
+    color: white;
+    margin-left: 100px;
+}
+#totalPrice {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 50px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eee;
+    font-size: large;
+    font-style: italic;
+}
+.minus {
+    background: #000;
+    color: #fff;
+    border: none;
+}
+.delete {
+    background: #000;
+    color: #fff;
+    border: none;
+}
+.plus {
+    background: #ed1c24;
+    color: #fff;
+    border: none;
+}
+
+.orderLeft {
+    float: left;
+    width: 850px;
+    position: relative;
+    border: 2px solid #f1f1f1;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #fff;
+}
+
+.orderRight {
+    width: 400px;
+    margin-left: 870px;
+    position: relative;
+    background: rgba(0,0,0,0.04);
+    padding: 20px;
+}
+.orderRight label span, .label span {
+    display: block;
+    width: 100%;
+    padding-bottom: 6px;
+}
+.orderRight label, .label {
+    width: 100%;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.orderRight label input {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    transition: all .3s;
+}
+.orderRight label select {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+}
+
+.orderRight label textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+}
+
+label {
+    cursor: default;
+}
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+.error {
+    color: #ed1c24;
+}
+.countValue {
+    width: 40px;
+    height: 24px;
+}
+
+.catalogueItemBuy {
+    margin-left: 300px;
+}
+.catalogueItemBuyValue {
+    display: inline;
+}

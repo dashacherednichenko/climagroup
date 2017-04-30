@@ -1,0 +1,87 @@
+<div id="myCart" ng-controller="basketCtrl as bk">
+    <div class="crumbs">
+        <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+        >
+        <a itemprop="url" href="{{items.link}}" class="crumbs__l"><span itemprop="title">Кошик покупок</span></a>
+    </div>
+    <h2 class="page-header">{{bk.title}}
+        <br>
+        <a href="#!/" style="display: none" id="backToMain">Повернутись до покупок на головну</a>
+    </h2>
+    <div id="orderForm">
+        <div class="orderLeft">
+            <ul ng-repeat="items in bk.newBasket">
+                 <li>
+                     <button data-art="{{items.id}}" class="delete" ng-click="bk.deleteGoods(items.id)">x</button>
+                     <a href="#!/one_product" ng-click="bk.testClickProd(items.id)">
+                         {{items.name}}
+                     </a>
+                     <a href="#!/one_product" ng-click="bk.testClickProd(items.id)">
+                         <img ng-src="{{items.image}}" id="imgGoods" style="height: 100px"></img>
+                     </a>
+                     ціна, грн: {{items.price}}
+                     <button data-art="{{items.id}}" class="minus" ng-click="bk.minusGoods(items.id)">-</button>
+                     кількість,од-{{items.number}},
+                     <button data-art="{{items.id}}" class="plus" ng-click="bk.plusGoods(items.id)">+</button>
+                     всього: {{items.number*items.price}} грн
+                 </li>
+            </ul>
+        <div id="totalPrice">
+            Загалом сума замовлення,грн: {{bk.orderPrice}}
+        </div>
+        </div>
+        <div class="orderRight">
+            <form name="orderFormRight" action="">
+                <label for="">
+                    <span>ПІБ</span>
+                    <input type="text" id="order_form[name]" value="" required>
+                    <!--<p id='err_fio' class='error'></p>-->
+                </label>
+                <label for="">
+                    <span>Телефон</span>
+                    <input type="text" id="order_form[phone]" required>
+                    <!--<p id='err_phone' class='error'></p>-->
+                </label>
+                <label for="">
+                    <span>Електронна пошта</span>
+                    <input type="email" id="order_form[email]" required>
+                    <!--<p id='err_mail' class='error'></p>-->
+
+                </label>
+                <label for="">
+                    <span>Адреса доставки</span>
+                    <input type="text" id="order_form[address]" required>
+                    <!--<p id='err_address' class='error'></p>-->
+                </label>
+                <label for="">
+                    <span>Спосіб доставки</span>
+                    <select>
+                        <option value="1">Нова Пошта</option>
+                        <option value="2">Кур'єром</option>
+                        <option value="3">Інша служба доставки (вкажіть в побажаннях)</option>
+                    </select>
+                </label>
+                <label for="">
+                    <span>Оплата</span>
+                    <select>
+                        <option value="1">Готівка кур'єру (оплата при одержанні)</option>
+                        <option value="2">Передоплата</option>
+                        <option value="3">Наложений платіж</option>
+                    </select>
+                </label>
+                <label for="">
+                    <span>Побажання до замовлення</span>
+                    <textarea></textarea>
+                </label>
+                <label for="">
+                    <span></span>
+                    <button type="submit" class="buyOrder" ng-click="bk.onClickOrder()">Оформити замовлення</button>
+                </label>
+             </form>
+        </div>
+
+    </div>
+
+
+
+</div>

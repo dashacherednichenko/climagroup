@@ -1,0 +1,69 @@
+<div class="wrapper" ng-controller="callBackCtrl as callBackCtrl">
+    <div class="rightBar" style="margin-left: 0">
+        <div class="crumbs">
+            <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+            >
+            <a itemprop="url" href="#!/call-back" class="crumbs__l"><span itemprop="title">Зворотній зв'язок</span></a>
+        </div>
+        <h2 class="page-header">Зворотній зв'язок</h2><br>
+        <div style="font-size: 14px; line-height: 21px;">
+            <div class="contactsLeft">
+                <ul style="list-style:none; padding:0px; margin:0px; ">
+                    <li style="word-break: break-all;">
+                        <img src="../../images/icons/symbol20email.png" width="24" height="24" align="middle" alt="">
+                        <strong>e-mail:</strong>&nbsp;
+                        <a href="mailto:info@xxxxx.xxx">info@sushamag.com.ua</a>
+                    </li>
+                    <li style="word-break: break-all;">
+                        <img src="../../images/icons/phone.png" width="24" height="24" alt="" align="middle">
+                        <strong>﻿Life: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        </strong><span style="color: rgb(255, 102, 0);">
+                    <strong>380937632984</strong></span>
+                    </li>
+                    <li style="word-break: break-all;">
+                        <img src="../../images/icons/clock96.png" width="24" height="24" alt="" align="middle">
+                        ﻿<strong>Ми працюємо</strong>: Без вихідних. З 10:00 до 19:00<a id="fck_paste_padding">﻿
+                    </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contactsRight">
+                <div class="feedBack">
+                    <span>Лист буде відправлено в службу підтримки. Ми прикладемо всіх зусиль для того, щоб відповісти Вам максимально швидко.</span>
+
+                    <form>
+                    <label>
+                        <span>Ваше ім'я:
+                        </span><br>
+                        <input type="text" id="form[Имя]" required>
+                        <!--<p id='err_nameCB' class='error'></p>-->
+                    </label><br>
+                        <label>
+                            <span>Ваш e-mail:
+                            </span><br>
+                            <input type="text" id="form[E-mail]" required>
+                            <!--<p id='err_mailCB' class='error'></p>-->
+                        </label><br>
+                        <label>
+                            <span>Повідомлення</span><br>
+                            <textarea id="form[Сообщение]" value="" required></textarea>
+                            <!--<p id='err_messageCB' class='error'></p>-->
+                        </label><br>
+                    <label>
+                        <button type="submit" class="btn btn-red" ng-click="callBackCtrl.submitClick()">Відправити
+                        </button>
+                    </label><br>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</div>

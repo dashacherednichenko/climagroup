@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>СушаМаг</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.min.css">
+    <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast-animations.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+
+<header class="header">
+    <div class="headerLogotype">
+        <a class="navbar-brand headerLogo" href="/"></a>
+    </div>
+    <nav class="navbar navbar-default headerMenu" role="navigation" ng-controller="menuCtrl as menu">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" id="mobMenu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">меню</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="items in menu.menuLinks"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-repeat="items in menu.menuLeftLinksBasket"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}
+                    <span class="count" style="display: block">({{bascketPrice}} грн)</span>
+                </a></li>
+                <!--<li ng-repeat="items in menu.menuLeftLinksMy"class="dropdown">-->
+                    <!--<a ng-click="menu.testClick(items.name)" href="{{items.link}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{items.name}}<span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li ng-repeat="items in menu.myAcc"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}</a></li>-->
+                    <!--</ul>-->
+                </li>
+            </ul>
+
+       </div>
+       </div>
+   </nav>
+</header>
+
+
+
+
+<conteiner>
+   <ng-view></ng-view>
+</conteiner>
+
+
+<!--<div id="loading"></div>-->
+<!--<img src="/images/loading_icon.gif" id="loadingImg">-->
+<button id="top">&#8593;</button>
+<footer class="footer">
+    <div class="wrapper">
+        тел: 093-763-29-84 <br>
+        Працюємо без вихідних <br>
+        <span id="footer1"> &copy; всі права захищені</span>
+    </div>
+    <div class="footerBack"></div>
+
+</footer>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/ngToast/dist/ngToast.min.js"></script>
+<script src="src/index.js"></script>
+<script src="src/app.js"></script>
+<script src="templates/menu.js"></script>
+<script src="/components/goods/goods.js"></script>
+<script src="/components/basket/basket.js"></script>
+<script src="/components/menu/menu.controller.js"></script>
+<script src="/components/call_back/call_back.js"></script>
+<script src="/components/one_product/one_product.js"></script>
+<script src="/services/goods.service.js"></script>
+<script src="/services/cart.service.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "shop",
+  "version": "0.0.1",
+  "description": "тестова версія магазину",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "dariia piven",
+  "license": "ISC"
+}

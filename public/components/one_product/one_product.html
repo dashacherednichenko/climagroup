@@ -1,0 +1,30 @@
+<div ng-controller="one_productCtrl as prodCtrl">
+
+    <h2 class="page-header">{{prodCtrl.onePrPaint.name}}</h2><br>
+    <div>
+        <img id="item_photo" src="{{prodCtrl.onePrPaint.image}}" alt="">
+        <div class="catalogueItemDescription">{{prodCtrl.onePrPaint.description}}</div>
+
+        <toast>
+        </toast>
+        <div class="catalogueItemBuy">
+            <ul class="reset">
+                <li class="">
+                    <div class="price">Ціна: {{prodCtrl.onePrPaint.price}} грн.</div>
+                    <div class="catalogueItemBuyValue">
+                        <e>Кількість:</e>
+                        <button data-art="{{items.id}}" class="minus" ng-click="prodCtrl.minusGoodsOneProd()">-</button>
+                        <input type="text" id="count" value="1" class="countValue" data-shop="quantity">
+                        <button class="plus" ng-click="prodCtrl.plusGoodsOneProd()">+</button>
+                    </div>
+
+                    <div class="buy">
+                        <button data-art="{{items.id}}" class="addCart" ng-click="prodCtrl.addProductToCartClick(items.id, items.price)">Додати до кошика</button>
+                </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
