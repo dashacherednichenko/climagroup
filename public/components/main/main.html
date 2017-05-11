@@ -1,0 +1,27 @@
+<h2 id="hMain" class="page-header">Головна</h2>
+<div id="miniCart" ng-controller="myGoodsCtrl as goodsCtrl">
+    <div class="catalogueListInside" >
+
+        <div class="col-lg-4 col-sm-6 col col-xs-12 catalogueItem" ng-repeat="items in goodsCtrl.goods">
+            <a href="#!/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">
+                {{items.name}}
+            </a>
+            <button data-art="{{items.id}}" class="addCart" ng-click="goodsCtrl.addToCartClick(items.id, items.price)">Купити</button>
+            <toast>
+            </toast>
+            <div>Ціна {{items.price}} грн
+                <div>
+                    <a href="#!/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">
+                        <img ng-src="{{items.image}}" id="imgGoods">
+                        </img>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+

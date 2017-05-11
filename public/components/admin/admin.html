@@ -1,0 +1,30 @@
+<div class="crumbs">
+    <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+    >
+    <a itemprop="url" href="/#!/admin" class="crumbs__l"><span itemprop="title">Панель адміністратора</span></a>
+</div>
+
+<div id="admin" ng-controller="adminCtrl as admin">
+    <h2 class="page-header">Каталог товарів</h2> <button class="addCart" style="float: right; margin-right: 100px; height: 50px; width: 160px" ng-click="admin.pushNewProduct()">Додати товар</button><br>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Фото</th>
+        <th>Назва</th>
+        <th>Ціна товару, грн</th>
+        <th>Опис товару</th>
+        <th>Керування</th>
+
+    </tr>
+    <tr ng-repeat="items in admin.goods">
+        <td>{{items.id}}</td>
+        <td><img src="{{items.image}}" height="80px"></td>
+        <td>{{items.name}}</td>
+        <td>{{items.price}}</td>
+        <td>{{items.description}}</td>
+        <td>
+            <button data-art="{{items.id}}" class="" ng-click="admin.editProduct(items.id)">змінити</button>
+        </td>
+    </tr>
+</table>
+</div>

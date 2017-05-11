@@ -13,10 +13,10 @@
             <ul ng-repeat="items in bk.newBasket">
                  <li>
                      <button data-art="{{items.id}}" class="delete" ng-click="bk.deleteGoods(items.id)">x</button>
-                     <a href="#!/one_product" ng-click="bk.testClickProd(items.id)">
+                     <a href="#!/product/{{items.id}}" ng-click="bk.testClickProd(items.id)">
                          {{items.name}}
                      </a>
-                     <a href="#!/one_product" ng-click="bk.testClickProd(items.id)">
+                     <a href="#!/product/{{items.id}}" ng-click="bk.testClickProd(items.id)">
                          <img ng-src="{{items.image}}" id="imgGoods" style="height: 100px"></img>
                      </a>
                      ціна, грн: {{items.price}}

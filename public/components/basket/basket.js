@@ -1,12 +1,14 @@
 /**
  * Created by dashacherednichenko on 23.03.17.
  */
-App.controller('basketCtrl', function ($scope, $http,$rootScope, cart) {
+App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
     var vm = this;
     vm.newBasket = [];
     vm.cart={};
     vm.divs = document.getElementById('totalPrice');
     vm.divOrder=document.getElementById('orderForm');
+
+
 
 
     var loadingGoods = function () {

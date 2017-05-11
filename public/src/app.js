@@ -6,7 +6,7 @@ App.config(function ($routeProvider) {
 
 
     $routeProvider.when('/',{
-        templateUrl:'../templates/main.html'
+        templateUrl:'../components/main/main.html'
     }).when('/call-back',{
         templateUrl:'../components/call_back/call_back.html',
         controller:'callBackCtrl'
@@ -24,10 +24,22 @@ App.config(function ($routeProvider) {
     //     templateUrl:'../components/my_account/my_account.html',
     //     controller:''
     // })
-        .when('/one_product',{
+        .when('/product/:productId',{
         templateUrl:'../components/one_product/one_product.html',
         controller:'one_productCtrl'
     })
+        .when('/admin',{
+            templateUrl:'../components/admin/admin.html',
+            controller:'adminCtrl'
+        })
+        .when('/admin/edit/:id',{
+            templateUrl:'../components/admin/edit/edit.html',
+            controller:'editCtrl'
+        })
+    //     .when('/test',{
+    //     templateUrl:'../test/test.html',
+    //     controller:''
+    // })
     ;
 });
 

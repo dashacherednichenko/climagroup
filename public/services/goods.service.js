@@ -10,6 +10,17 @@ App.service('goods', function ($http) {
             return response.data;
         });
     }
+    
+    service.getProduct = function (productId) {
+        return $http({
+            method:'GET',
+            url:'goods/' + productId
+        }).then(function successCallback (res) {
+            return res.data;
+            console.log('Product',res);
+        })
+
+    }
 
 
     return service;

@@ -1,0 +1,42 @@
+<div class="crumbs">
+    <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+    >
+    <a itemprop="url" href="/#!/admin" class="crumbs__l"><span itemprop="title">Панель адміністратора</span></a>
+    >
+    <a itemprop="url" href="/#!/admin/edit" class="crumbs__l"><span itemprop="title">Додати/редагувати товар</span></a>
+</div>
+<div ng-controller="editCtrl as edit">
+    <h4>Додати/редагувати товар</h4>
+
+    <form action="" style="border: solid 1px; margin-left: 5px">
+        <table id="edit">
+            <tr>
+                <td class="nameProperty">Назва товару:</td>
+                <td style="border: 0"><input type="text" style="width: 100%" name="title" class="input" maxlength="255" value="{{edit.onePrPaint.name}}"></td>
+            </tr>
+            <tr>
+                <td class="nameProperty">Опис товару:</td>
+                <td style="border: 0">
+                    <textarea name="intro" rows="8" class="input" style="width: 100%">{{edit.onePrPaint.description}}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="nameProperty">Ціна:</td>
+                <td style="border: 0"><input type="text" style="width: 100%" name="price" class="input" maxlength="10" value="{{edit.onePrPaint.price}}"></td>
+            </tr>
+            <tr>
+                <td class="nameProperty">Зображення:</td>
+                <td style="border: 0">
+                    <img id="imgLogo" src="{{edit.onePrPaint.image}}" name="imageSrc">
+                    <input type="file" id="inputFile" style="width: 100%; display: none">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    <toast>
+    </toast>
+    <button id="changeImgButton" style="margin: 20px" onclick="$('#inputFile').css({ display: 'inline-block'})">змінити зображення</button>
+    <br>
+    <button id="saveChanges" style="margin: 20px" ng-click="edit.saveChanges()">Зберегти зміни</button>
+</div>
