@@ -48,11 +48,11 @@
             </div>
             <ul ng-controller="menuCtrl as menu" class="page-header-nav">
                 <li ng-repeat="menuItem in menu.menuTopLinks">
-                    <a ng-click="menu.testClick(menuItem.name)" href="{{menuItem.link}}">
+                    <a ng-click="menu.testClick(menuItem.name)" href="{{menuItem.link}}" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{menuItem.img}}" id="menu_icon">
                         {{menuItem.name}}
                     </a>
-                    <ul>
+                    <ul class="dropdown-menu">
                         <li ng-repeat="extraMenuItem in menuItem.extraLinks">
                             <a ng-click="menu.testClick(extraMenuItem.name)" href="{{extraMenuItem.link}}">
                                 {{extraMenuItem.name}}
