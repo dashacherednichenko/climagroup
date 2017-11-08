@@ -1,39 +1,50 @@
 <div class="wrapper" ng-controller="callBackCtrl as callBackCtrl">
     <div class="rightBar" style="margin-left: 0">
         <div class="crumbs">
-            <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+            <a href="#!/" class="crumbs__l crumbs__l_home">На главную</a>
             >
-            <a itemprop="url" href="#!/call-back" class="crumbs__l"><span itemprop="title">Зворотній зв'язок</span></a>
+            <a itemprop="url" href="#!/call-back" class="crumbs__l"><span itemprop="title">Контакты</span></a>
         </div>
-        <h2 class="page-header">Зворотній зв'язок</h2><br>
+        <div>
+            <h1>Контакты</h1><br>
+
+        </div>
         <div style="font-size: 14px; line-height: 21px;">
+            <div>
+            <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.5960416509383!2d30.244496765202044!3d50.516614733422536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472b33cddcb624a5%3A0xff6bcdce3117a364!2z0LLRg9C70LjRhtGPINCT0LDQs9Cw0YDRltC90LAsIDIsINCG0YDQv9GW0L3RjCwg0JrQuNGX0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjA!5e0!3m2!1suk!2sua!4v1490178387429" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+
             <div class="contactsLeft">
                 <ul style="list-style:none; padding:0px; margin:0px; ">
                     <li style="word-break: break-all;">
                         <img src="../../images/icons/symbol20email.png" width="24" height="24" align="middle" alt="">
                         <strong>e-mail:</strong>&nbsp;
-                        <a href="mailto:info@xxxxx.xxx">info@sushamag.com.ua</a>
+                        <a href="mailto:climagroup@i.ua">climagroup@i.ua</a>
                     </li>
                     <li style="word-break: break-all;">
                         <img src="../../images/icons/phone.png" width="24" height="24" alt="" align="middle">
-                        <strong>﻿Life: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <strong>
                         </strong><span style="color: rgb(255, 102, 0);">
-                    <strong>380937632984</strong></span>
+                    <strong>
+                        +38 (068) 303 08 60<br>
+                        +38 (095) 930 80 33<br>
+                        +38 (044) 223 33 65<br>
+                    </strong></span>
                     </li>
                     <li style="word-break: break-all;">
                         <img src="../../images/icons/clock96.png" width="24" height="24" alt="" align="middle">
-                        ﻿<strong>Ми працюємо</strong>: Без вихідних. З 10:00 до 19:00<a id="fck_paste_padding">﻿
+                        ﻿<strong>Мы работаем</strong>: Без выходных. С 9:00 до 19:00<a id="fck_paste_padding">﻿
                     </a>
                     </li>
                 </ul>
             </div>
             <div class="contactsRight">
                 <div class="feedBack">
-                    <span>Лист буде відправлено в службу підтримки. Ми прикладемо всіх зусиль для того, щоб відповісти Вам максимально швидко.</span>
+                    <span>Письмо будет отправлено в службу поддержки. Мы приложим всех усилий для того, чтобы ответить Вам максимально бысто.</span>
 
                     <form>
                     <label>
-                        <span>Ваше ім'я:
+                        <span>Ваше имя:
                         </span><br>
                         <input type="text" id="form[Имя]" required>
                         <!--<p id='err_nameCB' class='error'></p>-->
@@ -45,12 +56,12 @@
                             <!--<p id='err_mailCB' class='error'></p>-->
                         </label><br>
                         <label>
-                            <span>Повідомлення</span><br>
+                            <span>Сообщение</span><br>
                             <textarea id="form[Сообщение]" value="" required></textarea>
                             <!--<p id='err_messageCB' class='error'></p>-->
                         </label><br>
                     <label>
-                        <button type="submit" class="btn btn-red" ng-click="callBackCtrl.submitClick()">Відправити
+                        <button type="submit" class="btn btn-red" ng-click="callBackCtrl.submitClick()">Отправить
                         </button>
                     </label><br>
                     </form>

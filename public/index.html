@@ -2,7 +2,8 @@
 <html lang="en" ng-app="App">
 <head>
     <meta charset="UTF-8">
-    <title>СушаМаг</title>
+    <title>climagroup.com.ua - кондиционеры для Вашего дома и офиса</title>
+    <meta name="Description" content="В нашем интернет-магазине climagroup.com.ua вы сможете получить профессиональную консультацию по поводу кондиционирования помещеня, подобрать и купить кондиционер. Ми предоставляем официальную гарантию, доставку, монтаж и обслуживание">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.min.css">
@@ -11,63 +12,126 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-
-
-<header class="header">
-    <div class="headerLogotype">
-        <a class="navbar-brand headerLogo" href="/"></a>
+<div id="container" class style="animation-duration: 400ms;opacity: 1;">
+    <div class="header-logo">
+    <a class="headerLogo" href="/"></a>
     </div>
-    <nav class="navbar navbar-default headerMenu" role="navigation" ng-controller="menuCtrl as menu">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" id="mobMenu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">меню</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <nav class="main-navigation open" role="navigation" ng-controller="menuCtrl as menu">
+        <ul id="menu-top_menu" class="open nav top-nav cf" style="height: 712px;">
+            <li ng-repeat="items in menu.menuLinks" id="liNav">
+                <a ng-click="menu.testClick(items.name)" href="{{items.link}}">
+                    <img src="{{items.img}}" id="menu_icon">
+                    {{items.name}}
+                </a>
+                <!--<ul>-->
+                    <!--<li ng-repeat="items in menu.menuLinks">-->
+
+                    <!--</li>-->
+                <!--</ul>-->
+            </li>
+        </ul>
+    </nav>
+    <div class="page-header">
+        <div class="page-header-left">
+            <div class="search-box">
+                <form>
+                    <div class="search-box-frame">
+                        <input class="search-text" type="text" placeholder="Поиск" autocomplete="off">
+                        <div class="search-btn"></div>
+                    </div>
+                </form>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li ng-repeat="items in menu.menuLinks"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-repeat="items in menu.menuLeftLinksBasket"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}
-                    <span class="count" style="display: block">({{bascketPrice}} грн)</span>
-                </a></li>
-                <!--<li ng-repeat="items in menu.menuLeftLinksMy"class="dropdown">-->
-                    <!--<a ng-click="menu.testClick(items.name)" href="{{items.link}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{items.name}}<span class="caret"></span></a>-->
-                    <!--<ul class="dropdown-menu">-->
-                        <!--<li ng-repeat="items in menu.myAcc"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}</a></li>-->
-                    <!--</ul>-->
+        </div>
+        <div class="page-header-right">
+            <div>
+
+            </div>
+            <ul ng-controller="menuCtrl as menu" class="page-header-nav">
+                <li ng-repeat="menuItem in menu.menuTopLinks">
+                    <a ng-click="menu.testClick(menuItem.name)" href="{{menuItem.link}}">
+                        <img src="{{menuItem.img}}" id="menu_icon">
+                        {{menuItem.name}}
+                    </a>
+                    <ul>
+                        <li ng-repeat="extraMenuItem in menuItem.extraLinks">
+                            <a ng-click="menu.testClick(extraMenuItem.name)" href="{{extraMenuItem.link}}">
+                                {{extraMenuItem.name}}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-
-       </div>
-       </div>
-   </nav>
-</header>
-
-
-
-
-<conteiner>
-   <ng-view></ng-view>
-</conteiner>
-
-
-<!--<div id="loading"></div>-->
-<!--<img src="/images/loading_icon.gif" id="loadingImg">-->
-<button id="top">&#8593;</button>
-<footer class="footer">
-    <div class="wrapper">
-        тел: 093-763-29-84 <br>
-        Працюємо без вихідних <br>
-        <span id="footer1"> &copy; всі права захищені</span>
+        </div>
     </div>
-    <div class="footerBack"></div>
+    <div id="mainContainer">
+        <conteiner>
+            <ng-view></ng-view>
+        </conteiner>
+    </div>
+    <div>
+        <footer class="footer" role="contentinfo">
+            <div id="inner-footer-first"></div>
+            <div id="inner-footer-second">
+                +38 (068) 303 08 60<br>
+                +38 (095) 930 80 33<br>
+                +38 (044) 223 33 65<br>
+                <span id="footer1"> &copy; Все права защищены</span>
+            </div>
+            <button id="top">&#8593;</button>
+        </footer>
+    </div>
+</div>
 
-</footer>
+
+
+
+
+
+<!--<body class="inner-page modal-open" style="padding-right: 0px;">-->
+<!--<div class="page-holder">-->
+    <!--<header style="padding-right: 0px;">-->
+        <!--<div class="inner">-->
+            <!--<div class="header-column">-->
+                <!--<div class="header-logo">-->
+                    <!--<a class="headerLogo" href="/"></a>-->
+                <!--</div>-->
+                <!--<nav class="heder-nav" ng-controller="menuCtrl as menu">-->
+                    <!--<ul class="nav navbar-nav">-->
+                    <!--<li ng-repeat="items in menu.menuLinks" id="liNav"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}</a></li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</header>-->
+    <!--<div class="main">-->
+        <!--<div class="page-header" style="padding-right: 0px;"></div>-->
+        <!--<div class="catalogue">-->
+            <!--<conteiner>-->
+            <!--<ng-view></ng-view>-->
+            <!--</conteiner>-->
+        <!--</div>-->
+        <!--<button id="top">&#8593;</button>-->
+
+        <!--<footer class="footer">-->
+        <!--<div class="footerBack">-->
+        <!--<div class="wrapper">-->
+        <!--+38 (068) 303 08 60<br>-->
+        <!--+38 (095) 930 80 33<br>-->
+        <!--+38 (044) 223 33 65<br>-->
+        <!--<span id="footer1"> &copy; Все права защищены</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</footer>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
+
+
+
+
+
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

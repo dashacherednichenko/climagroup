@@ -29,13 +29,13 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
 
             vm.showBasket = function () {
                 if($.isEmptyObject(vm.cart)){
-                vm.title='Корзина порожня',
+                vm.title='Корзина пустая',
                     vm.divOrder.style.display="none",
                 vm.aHref=document.getElementById('backToMain'),
                     vm.aHref.style.display="block"
                     //перевіряю чи порожня корзина і виводжу відповідний напис
                 } else {
-                    vm.title='Ваше замовлення';
+                    vm.title='Ваш заказ';
                     for (vm.key in vm.cart) {
                         var basketItem = {};
                         basketItem.id = vm.goods[vm.key - 1].id;
@@ -90,7 +90,7 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
                 if(vm.cart[vm.articul.valueOf(vm.key)]>1)
                 {vm.cart[vm.articul.valueOf(vm.key)]--}
                 else
-                {if(confirm('Видалити '+vm.goods[id-1].name+ ' з корзини?')){
+                {if(confirm('Удалить '+vm.goods[id-1].name+ ' с корзины?')){
 
                     delete vm.cart[vm.articul.valueOf(vm.key)];
                 } else {
@@ -109,7 +109,7 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
             };
             vm.deleteGoods=function (id) {
                 vm.articul = id;
-                {if(confirm('Видалити '+vm.goods[id-1].name+ ' з корзини?')){
+                {if(confirm('Удалить '+vm.goods[id-1].name+ ' с корзины?')){
 
                     delete vm.cart[vm.articul.valueOf(vm.key)];
                 } else {
@@ -159,7 +159,7 @@ console.log('ERROR')
                 return false
             }
             else
-                {alert('Дякуємо! Замовлення оформлено :-)');
+                {alert('Спасибо! Заказ оформлен :-)');
                     clearData()
                     vm.showBasket()
                     vm.divs.style.display = 'none';

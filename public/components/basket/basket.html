@@ -1,13 +1,13 @@
 <div id="myCart" ng-controller="basketCtrl as bk">
     <div class="crumbs">
-        <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+        <a href="#!/" class="crumbs__l crumbs__l_home">На главную</a>
         >
-        <a itemprop="url" href="{{items.link}}" class="crumbs__l"><span itemprop="title">Кошик покупок</span></a>
+        <a itemprop="url" href="#!/basket" class="crumbs__l"><span itemprop="title">Корзина покупок</span></a>
     </div>
-    <h2 class="page-header">{{bk.title}}
+    <h1>{{bk.title}}
         <br>
-        <a href="#!/" style="display: none" id="backToMain">Повернутись до покупок на головну</a>
-    </h2>
+        <a href="#!/" style="display: none" id="backToMain">Вернуться на главную</a>
+    </h1>
     <div id="orderForm">
         <div class="orderLeft">
             <ul ng-repeat="items in bk.newBasket">
@@ -27,7 +27,7 @@
                  </li>
             </ul>
         <div id="totalPrice">
-            Загалом сума замовлення,грн: {{bk.orderPrice}}
+            Загалом сумма заказа,грн: {{bk.orderPrice}}
         </div>
         </div>
         <div class="orderRight">

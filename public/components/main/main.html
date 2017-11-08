@@ -1,27 +1,14 @@
-<h2 id="hMain" class="page-header">Головна</h2>
-<div id="miniCart" ng-controller="myGoodsCtrl as goodsCtrl">
-    <div class="catalogueListInside" >
-
-        <div class="col-lg-4 col-sm-6 col col-xs-12 catalogueItem" ng-repeat="items in goodsCtrl.goods">
-            <a href="#!/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">
-                {{items.name}}
-            </a>
-            <button data-art="{{items.id}}" class="addCart" ng-click="goodsCtrl.addToCartClick(items.id, items.price)">Купити</button>
-            <toast>
-            </toast>
-            <div>Ціна {{items.price}} грн
-                <div>
-                    <a href="#!/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">
-                        <img ng-src="{{items.image}}" id="imgGoods">
-                        </img>
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
+<div class="content-container">
+    <!--<header class="header" role="banner">-->
+        <!--<div class="slide-item" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 4; opacity: 0; width: 1440px; height: 525px;">-->
+            <!--<img src="../../images/iStock-803892176MAIN(CG2).jpg" style="width: 1440px">-->
+        <!--</div>-->
+    <!--</header>-->
+    <div id="mainPhoto">
+        <img src="../../images/iStock-803892176MAIN(CG2).jpg">
+        <br>
     </div>
 </div>
+
 
 

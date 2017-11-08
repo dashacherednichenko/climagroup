@@ -14,58 +14,75 @@ App.controller('menuCtrl',function($scope, $rootScope, cart){
 
     vm.menuLinks = [
         {
-            name:'Головна',
-            link:'#!/'
+            name:"Каталог товаров",
+            link:'#!/goods',
+            img: '../../images/icons/menu.png'
         },
         {
-            name:"Зворотній зв'язок",
-            link:'#!/call-back'
+            name:"Монтаж и обслуживание",
+            link:'#!/services',
+            img: '../../images/icons/service.png'
         },
         {
-            name:"Про нас",
-            link:'#!/about'
+            name:"О нас",
+            link:'#!/about',
+            img: '../../images/icons/about.png'
         },
         {
-            name:"Товари",
-            link:'#!/goods'
+            name:"Контакты",
+            link:'#!/call-back',
+            img: '../../images/icons/contact.png'
         }
+
     ]
-    vm.menuLeftLinksBasket = [
+    vm.menuTopLinks = [
+        {
+            name:"Мой кабинет",
+            link:'#!/my_account',
+            img: '../../images/icons/account.png',
+            extraLinks: [
+                {
+                    name:"Личные данные",
+                    link:'#!/my_account'
+                },
+                {
+                    name:"Список заказов",
+                    link:'#!/my_account'
+                },
+                {
+                    name:"Выход",
+                    link:'#!/my_account'
+                },
+            ]
+        },
         {
             name:'Корзина',
-            link:'#!/basket'
+            link:'#!/basket',
+            img: '../../images/icons/basket.png'
         },
     ]
-    // vm.menuLeftLinksMy = [
-    //     {
-    //         name:"Моя сторінка",
-    //         link:'#!/my_account'
-    //     },
-    // ]
-    // vm.myAcc = [
-    //     {
-    //         name:"Особисті дані",
-    //         link:'#!/my_account'
-    //     },
-    //     {
-    //         name:"Список замовлень",
-    //         link:'#!/my_account'
-    //     },
-    //     {
-    //         name:"Мої бажання",
-    //         link:'#!/my_account'
-    //     },
-    //     {
-    //         name:"Вихід",
-    //         link:'#!/my_account'
-    //     },
-    // ]
+    vm.myAcc = [
+        {
+            name:"Личные данные",
+            link:'#!/my_account'
+        },
+        {
+            name:"Список заказов",
+            link:'#!/my_account'
+        },
+        {
+            name:"Выход",
+            link:'#!/my_account'
+        },
+    ]
     vm.testVar = 'Test varible';
     var test = 'test';
 
     vm.testClick = function (name) {
         console.log('You clock on '+ name);
     };
+
+    console.log(vm.menuTopLinks[0].name)
 
     vm.spanOrderTotal = document.getElementsByClassName('count');
     console.log('span', vm.spanOrderTotal);
