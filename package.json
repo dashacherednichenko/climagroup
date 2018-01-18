@@ -6,7 +6,8 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "prerender-node": "latest"
   },
   "devDependencies": {
     "node-qunit-phantomjs": "^1.5.0",
@@ -19,3 +20,5 @@
   "author": "dariia piven",
   "license": "ISC"
 }
+
+

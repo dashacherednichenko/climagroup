@@ -1,60 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="App">
+<html lang="ru" ng-app="prerender-tutorial">
 <head>
+    <base href="/"/>
     <meta charset="UTF-8">
-    <title>climagroup.com.ua - кондиционеры для Вашего дома и офиса</title>
-    <meta name="Description" content="В нашем интернет-магазине climagroup.com.ua вы сможете получить профессиональную консультацию по поводу кондиционирования помещеня, подобрать и купить кондиционер. Ми предоставляем официальную гарантию, доставку, монтаж и обслуживание">
+    <meta name="fragment" content="!">
+    <title>Кондиционеры-climagroup.com.ua</title>
+    <meta name="Description" content="
+        Получить профессиональную консультацию по поводу кондиционирования помещения? Подобрать и купить кондиционер? Вам сюда! &#10003;Официальная гарантия, &#10003;доставка, &#10003;монтаж и обслуживание. &#9786 Заходите!">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.min.css">
     <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast-animations.min.css">
     <!--<link rel="stylesheet" href="bower_components/qunit/qunit/qunit.css">-->
     <link rel="stylesheet" href="styles/style.css">
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
-<div id="container" class style="animation-duration: 400ms;opacity: 1;">
+<div id="container">
     <div class="header-logo">
     <a class="headerLogo" href="/"></a>
     </div>
     <nav class="main-navigation open" role="navigation" ng-controller="menuCtrl as menu">
-        <ul id="menu-top_menu" class="open nav top-nav cf" style="height: 712px;">
-            <li ng-repeat="items in menu.menuLinks" id="liNav">
-                <a ng-click="menu.testClick(items.name)" href="{{items.link}}">
-                    <img src="{{items.img}}" id="menu_icon">
-                    {{items.name}}
+        <ul id="menu-top_menu" class="open nav top-nav cf">
+            <li ng-repeat="menuItemsLeft in menu.menuLinks" id="liNav">
+                <a ng-click="menu.testClick(menuItemsLeft.name)" href="{{menuItemsLeft.link}}">
+                    <img ng-src="{{menuItemsLeft.img}}"><br>
+                    {{menuItemsLeft.name}}
                 </a>
-                <!--<ul>-->
-                    <!--<li ng-repeat="items in menu.menuLinks">-->
-
-                    <!--</li>-->
-                <!--</ul>-->
+                    <ul class="submenuLeft">
+                        <li ng-repeat="extraMenuItemLeft in menuItemsLeft.extraLinks" id="submenuLiLeft">
+                            <a ng-click="menu.testClick(extraMenuItemLeft.name)" href="{{extraMenuItemLeft.link}}" id="submenuALeft">
+                                {{extraMenuItemLeft.name}}
+                            </a>
+                        </li>
+                    </ul>
             </li>
         </ul>
     </nav>
     <div class="page-header">
         <div class="page-header-left">
+            <div id="headerContact">
+                &#9742; +38 (068) 303 08 60,
+                +38 (095) 930 80 33
+            </div>
             <div class="search-box">
                 <form>
                     <div class="search-box-frame">
-                        <input class="search-text" type="text" placeholder="Поиск" autocomplete="off">
+                        <input class="search-text" type="text" placeholder="&#128270; Поиск" autocomplete="off" ng-model="search">
                         <div class="search-btn"></div>
                     </div>
                 </form>
             </div>
         </div>
         <div class="page-header-right">
-            <div>
-
-            </div>
             <ul ng-controller="menuCtrl as menu" class="page-header-nav">
                 <li ng-repeat="menuItem in menu.menuTopLinks">
                     <a ng-click="menu.testClick(menuItem.name)" href="{{menuItem.link}}" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{menuItem.img}}" id="menu_icon">
+                        <img ng-src="{{menuItem.img}}" id="menu_icon">
                         {{menuItem.name}}
                     </a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="extraMenuItem in menuItem.extraLinks">
-                            <a ng-click="menu.testClick(extraMenuItem.name)" href="{{extraMenuItem.link}}">
+                    <ul class="submenu">
+                        <li ng-repeat="extraMenuItem in menuItem.extraLinks" id="submenuLi">
+                            <a ng-click="menu.testClick(extraMenuItem.name)" href="{{extraMenuItem.link}}" id="submenuA">
                                 {{extraMenuItem.name}}
                             </a>
                         </li>
@@ -70,62 +77,38 @@
     </div>
     <div>
         <footer class="footer" role="contentinfo">
-            <div id="inner-footer-first"></div>
-            <div id="inner-footer-second">
+            <div id="inner-footer-first">
+            </div>
+
+            <div id="inner-footer-second-left">
                 +38 (068) 303 08 60<br>
                 +38 (095) 930 80 33<br>
                 +38 (044) 223 33 65<br>
+                <br>
+                <div id="social">
+                    CLIMAGROUP в соцсетях:
+                    <a href="https://www.facebook.com/climagroupua/" rel="nofollow" target='_blank'>
+                        <img src="images/icons/facebook.png" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/climagroup/" rel="nofollow" target='_blank'>
+                        <img src="images/icons/instagram.png" alt="">
+                    </a>
+                </div>
                 <span id="footer1"> &copy; Все права защищены</span>
+            </div>
+            <div id="inner-footer-second-right">
+                ООО «ПРОМТЕХИННОВАЦИИ» <br>
+                ИНН 399056910316 <br>
+                код ЕДРПОУ 39905699 <br>
+                P/c 26006050010661, "ПРИВАТБАНК", МФО 305299 <br>
+                Юр.адрес: <br>
+                Украина, Киевская обл., г.Ирпень, ул. Садовая, № 69-А <br>
+                тел.: (044) 223 33 65
             </div>
             <button id="top">&#8593;</button>
         </footer>
     </div>
 </div>
-
-
-
-
-
-
-<!--<body class="inner-page modal-open" style="padding-right: 0px;">-->
-<!--<div class="page-holder">-->
-    <!--<header style="padding-right: 0px;">-->
-        <!--<div class="inner">-->
-            <!--<div class="header-column">-->
-                <!--<div class="header-logo">-->
-                    <!--<a class="headerLogo" href="/"></a>-->
-                <!--</div>-->
-                <!--<nav class="heder-nav" ng-controller="menuCtrl as menu">-->
-                    <!--<ul class="nav navbar-nav">-->
-                    <!--<li ng-repeat="items in menu.menuLinks" id="liNav"><a ng-click="menu.testClick(items.name)" href="{{items.link}}" >{{items.name}}</a></li>-->
-                    <!--</ul>-->
-                <!--</nav>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</header>-->
-    <!--<div class="main">-->
-        <!--<div class="page-header" style="padding-right: 0px;"></div>-->
-        <!--<div class="catalogue">-->
-            <!--<conteiner>-->
-            <!--<ng-view></ng-view>-->
-            <!--</conteiner>-->
-        <!--</div>-->
-        <!--<button id="top">&#8593;</button>-->
-
-        <!--<footer class="footer">-->
-        <!--<div class="footerBack">-->
-        <!--<div class="wrapper">-->
-        <!--+38 (068) 303 08 60<br>-->
-        <!--+38 (095) 930 80 33<br>-->
-        <!--+38 (044) 223 33 65<br>-->
-        <!--<span id="footer1"> &copy; Все права защищены</span>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</footer>-->
-    <!--</div>-->
-
-<!--</div>-->
-
 
 
 
@@ -145,6 +128,7 @@
 <script src="src/app.js"></script>
 <script src="/components/goods/goods.js"></script>
 <script src="/components/basket/basket.js"></script>
+<script src="/components/about/about.js"></script>
 <script src="/components/menu/menu.controller.js"></script>
 <script src="/components/call_back/call_back.js"></script>
 <script src="/components/one_product/one_product.js"></script>
@@ -156,3 +140,7 @@
 
 </body>
 </html>
+
+
+<!--todo-->
+<!--запитати у Андрія: стрілочки на сторінці товару не зникають-->

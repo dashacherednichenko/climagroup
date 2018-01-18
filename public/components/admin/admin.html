@@ -1,29 +1,31 @@
 <div class="crumbs">
-    <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+    <a href="/" class="crumbs__l crumbs__l_home">На главную</a>
     >
-    <a itemprop="url" href="/#!/admin" class="crumbs__l"><span itemprop="title">Панель адміністратора</span></a>
+    <!--<a itemprop="url" href="/#!/admin" class="crumbs__l">-->
+        <span itemprop="title">Панель администратора</span>
+    <!--</a>-->
 </div>
 
 <div id="admin" ng-controller="adminCtrl as admin">
-    <h2 class="page-header">Каталог товарів</h2> <button class="addCart" style="float: right; margin-right: 100px; height: 50px; width: 160px" ng-click="admin.pushNewProduct()">Додати товар</button><br>
+    <h1>Каталог товаров</h1> <button class="addCart" style="float: right; margin-right: 100px; height: 50px; width: 160px" ng-click="admin.pushNewProduct()">Добавить товар</button><br>
 <table>
     <tr>
         <th>id</th>
         <th>Фото</th>
-        <th>Назва</th>
-        <th>Ціна товару, грн</th>
-        <th>Опис товару</th>
-        <th>Керування</th>
+        <th>Компания</th>
+        <th>Цена товара, грн</th>
+        <th>Описание товара</th>
+        <th>Изменить</th>
 
     </tr>
     <tr ng-repeat="items in admin.goods">
         <td>{{items.id}}</td>
-        <td><img src="{{items.image}}" height="80px"></td>
-        <td>{{items.name}}</td>
+        <td><img ng-src="{{items.image[0]}}" height="80px"></td>
+        <td>{{items.Company}}</td>
         <td>{{items.price}}</td>
-        <td>{{items.description}}</td>
+        <td>{{items.Description}}</td>
         <td>
-            <button data-art="{{items.id}}" class="" ng-click="admin.editProduct(items.id)">змінити</button>
+            <button data-art="{{items.id}}" class="" ng-click="admin.editProduct(items.id)">изменить</button>
         </td>
     </tr>
 </table>

@@ -1,9 +1,27 @@
 /**
  * Created by dashacherednichenko on 22.03.17.
  */
-var App = angular.module("App", ["ngRoute","ngToast"]);
-App.config(function ($routeProvider) {
-
+var App = angular.module('prerender-tutorial', ["ngRoute","ngToast"]);
+App.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix = '!';
+    // $locationProvider.html5Mode({
+    //     enabled: true,
+    //     requireBase: false
+    // });
+    // $urlRouterProvider.otherwise('/');
+        // $stateProvider
+        //     .state('home', {
+        //         url: '/home',
+        //         templateUrl : 'views/home.html',
+        //         data : { pageTitle: 'Home' }
+        //
+        //     })
+        //     .state('about', {
+        //         url: '/about',
+        //         templateUrl : 'views/about.html',
+        //         data : { pageTitle: 'About' }
+        //     })
 
     $routeProvider.when('/',{
         templateUrl:'../components/main/main.html'
@@ -12,14 +30,20 @@ App.config(function ($routeProvider) {
         controller:'callBackCtrl'
     }).when('/about',{
         templateUrl:'../components/about/about.html',
-        controller:''
-    }).when('/goods',{
+        controller:'aboutUsCtrl',
+        // data : { pageTitle: 'About' }
+    }).when('/product',{
         templateUrl:'../components/goods/goods.html',
         controller:'myGoodsCtrl'
     }).when('/basket',{
         templateUrl:'../components/basket/basket.html',
         controller:'basketCtrl'
     })
+        .when('/services',{
+        templateUrl:'../components/services/services.html',
+        controller:''
+    })
+
     //     .when('/my_account',{
     //     templateUrl:'../components/my_account/my_account.html',
     //     controller:''
@@ -36,12 +60,16 @@ App.config(function ($routeProvider) {
             templateUrl:'../components/admin/edit/edit.html',
             controller:'editCtrl'
         })
+        .otherwise({
+            redirectTo: '/'
+        });
     //     .when('/test',{
     //     templateUrl:'../test/test.html',
     //     controller:''
     // })
-    ;
-});
+
+}]);
+
 
 
 

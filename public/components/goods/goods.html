@@ -1,33 +1,90 @@
-<!--<div id="miniCart" ng-controller="myGoodsCtrl as goodsCtrl">-->
-    <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-        <!--&lt;!&ndash;<li ng-repeat="(key, value) in goodsCtrl.cart">{{key}} - {{value}}</li>&ndash;&gt;-->
+<div id="miniCart" ng-controller="myGoodsCtrl as goodsCtrl">
 
-    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-    <!--<div class="catalogueListInside" >-->
-        <!--<div class="crumbs">-->
-            <!--<a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>-->
-            <!--&gt;-->
-            <!--<a itemprop="url" href="{{items.link}}"><span itemprop="title">Товари</span></a>-->
-        <!--</div>-->
-        <!--<h2 class="page-header">Наші товари</h2><br>-->
-    <!--<div class="col-lg-4 col-sm-6 col col-xs-12 catalogueItem" ng-repeat="items in goodsCtrl.goods">-->
-        <!--<a href="#!/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">-->
-            <!--{{items.name}}-->
-        <!--</a>-->
-        <!--<button data-art="{{items.id}}" class="addCart" ng-click="goodsCtrl.addToCartClick(items.id, items.price)">Купити</button>-->
-        <!--<toast>-->
-        <!--</toast>-->
-        <!--<div>Ціна {{items.price}} грн-->
-            <!--<div>-->
-                <!--<a href="#!/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">-->
-               <img ng-src="{{items.image}}" id="imgGoods">
-                </img>
-                <!--</a>-->
-            <!--</div>-->
+    <div class="catalogueListInside" >
+        <div class="crumbs">
+            <a href="/">На главную</a>
+            >
+            <!--<a itemprop="url" href="{{items.link}}">-->
+                <span itemprop="title">Каталог товаров</span>
+            <!--</a>-->
+        </div>
+        <h1>Каталог товаров</h1><br>
 
-        <!--</div>-->
 
-    <!--</div>-->
 
-    <!--</div>-->
-<!--</div>-->
+        <div class="catalog">
+            <div id="catalog_filters_block">
+                <div class="filter" id="parameters-filter-form" >
+                    <form>
+                        <div>
+                            <div>
+                                <span>Производитель</span>
+                            </div>
+                            <div>
+                                <li ng-repeat="Companies in goodsCtrl.goods | unique: 'Company'">
+                                    <input type="checkbox" id="{{Companies.Company}}" value=""  onclick="" class="checkbox">
+                                    <label for="{{Companies.Company}}">
+                                        {{Companies.Company}}
+                                    </label>
+                                </li>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Рекомендованная площадь помещения, кв.м</span>
+                        </div>
+                        <div>
+                            <span>Тип компрессора</span>
+                        </div>
+                        <div>
+                            <span>Тип установки внутреннего блока</span>
+                        </div>
+                        <div>
+                            <span>Режимы работы</span>
+                        </div>
+                        <div>
+                            <span>Тип</span>
+                        </div>
+                        <div>
+                            <span>Цена</span>
+                        </div>
+                        <div>
+                            <span>Wi-Fi модуль</span>
+                        </div>
+                        <div>
+                            <span>Страна производитель товара</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div class="catalogue-list">
+
+                <div class="col-lg-4 col-sm-6 col-xs-12 catalogueItem" ng-repeat="items in goodsCtrl.goods | filter:search">
+                    <a href="/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">
+                        {{items.Type}}
+                        {{items.Company}}
+                        {{items.Model}}
+                    </a>
+                    <toast>
+                    </toast>
+                    <div>Цена {{items.price}} грн
+                        <div>
+                            <a href="/product/{{items.id}}" ng-click="goodsCtrl.testClickProd(items.id)">
+                                <img ng-src="{{items.image[0]}}" id="imgGoods" alt="{{items.Company}}_{{items.Model}}">
+                                </img>
+                            </a>
+                        </div>
+                        <button data-art="{{items.id}}" class="addCart" ng-click="goodsCtrl.addToCartClick(items.id, items.price)">
+                            Купить
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

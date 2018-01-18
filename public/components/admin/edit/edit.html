@@ -1,42 +1,61 @@
 <div class="crumbs">
-    <a href="#!/" class="crumbs__l crumbs__l_home">На головну</a>
+    <a href="/" class="crumbs__l crumbs__l_home">На главную</a>
     >
-    <a itemprop="url" href="/#!/admin" class="crumbs__l"><span itemprop="title">Панель адміністратора</span></a>
+    <a itemprop="url" href="/#!/admin" class="crumbs__l"><span itemprop="title">Панель администратора</span></a>
     >
-    <a itemprop="url" href="/#!/admin/edit" class="crumbs__l"><span itemprop="title">Додати/редагувати товар</span></a>
+    <!--<a itemprop="url" href="/#!/admin/edit" class="crumbs__l">-->
+        <span itemprop="title">Добавить/редактировать товар</span>
+    <!--</a>-->
 </div>
 <div ng-controller="editCtrl as edit">
-    <h4>Додати/редагувати товар</h4>
+    <h1>Добавить/редактировать товар</h1>
 
-    <form action="" style="border: solid 1px; margin-left: 5px">
+    <form action="">
         <table id="edit">
             <tr>
-                <td class="nameProperty">Назва товару:</td>
-                <td style="border: 0"><input type="text" style="width: 100%" name="title" class="input" maxlength="255" value="{{edit.onePrPaint.name}}"></td>
-            </tr>
-            <tr>
-                <td class="nameProperty">Опис товару:</td>
+                <td class="nameProperty">Компания:</td>
                 <td style="border: 0">
-                    <textarea name="intro" rows="8" class="input" style="width: 100%">{{edit.onePrPaint.description}}</textarea>
+                    <input type="text" style="width: 100%" name="Company" class="input" maxlength="255" value="{{edit.onePrPaint.Company}}">
                 </td>
             </tr>
             <tr>
-                <td class="nameProperty">Ціна:</td>
-                <td style="border: 0"><input type="text" style="width: 100%" name="price" class="input" maxlength="10" value="{{edit.onePrPaint.price}}"></td>
+                <td class="nameProperty">Описание товара:</td>
+                <td style="border: 0">
+                    <textarea name="intro" rows="8" class="input" style="width: 100%">{{edit.onePrPaint.Description}}</textarea>
+                </td>
             </tr>
             <tr>
-                <td class="nameProperty">Зображення:</td>
-                <td style="border: 0">
-                    <img id="imgLogo" src="{{edit.onePrPaint.image}}" name="imageSrc">
-                    <input type="file" id="inputFile" style="width: 100%; display: none">
+                <td class="nameProperty">Цена:</td>
+                <td style="border: 0"><input type="text" style="width: 100%" name="price" class="input" maxlength="10" value="{{edit.onePrPaint.price}}">
                 </td>
+            </tr>
+            <tr>
+                <td class="nameProperty">Изображение:</td>
+                <td style="border: 0" >
+                    <li ng-repeat="goods_images in edit.good_images track by $index" class="liImage">
+                    <img ng-src="{{goods_images}}" name="imageSrc">
+                        <button id="changeImgButton" style="margin: 20px" onclick="$('#inputFile').css({ display: 'inline-block'})">
+                            изменить изображение
+                        </button>
+                    </li>
+                    <td>
+                        <input type="file" id="inputFile" style="width: 100%; display: none">
+                    </td>
+                </td>
+
+
+
+
+
+
+
             </tr>
         </table>
 
     </form>
     <toast>
     </toast>
-    <button id="changeImgButton" style="margin: 20px" onclick="$('#inputFile').css({ display: 'inline-block'})">змінити зображення</button>
+
     <br>
-    <button id="saveChanges" style="margin: 20px" ng-click="edit.saveChanges()">Зберегти зміни</button>
+    <button id="saveChanges" style="margin: 20px" ng-click="edit.saveChanges()">Сохранить изменения</button>
 </div>

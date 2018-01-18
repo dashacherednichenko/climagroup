@@ -7,16 +7,25 @@ var app = express();
 var port = 8881;
 
 
+
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 function start() {
+    app.use(require('prerender-node').set('prerenderToken', 'IVGtkJRsXT5bzPgpZXwP'));
+    // app.use(express.static("public"));
     app.use(express.static(__dirname + '/public'));
+    // app.get('*', function(req, res){
+    //     res.sendfile('public/index.html');
+    // });
     app.listen(port);
     console.log('Application start on port ' + port);
 }
 start();
-//app.use(express.static(path.join(__dirname, '../')));
+
+
+
 
 app.get('/getTov', function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
@@ -24,11 +33,13 @@ app.get('/getTov', function (req, res) {
     res.end(contents);
 });
 
+
 app.route('/goods')
     .get(function (req, res) {
         res.writeHead(200, {'Content-Type': 'text/plain'});
         var contents = fs.readFileSync('public/goods.json', 'utf8');
         res.end(contents);
+        console.log('contents', contents)
     })
     .post(function (req, res) {
     if(req.body.id && req.body.name && req.body.price && req.body.description && req.body.image ){
@@ -36,9 +47,9 @@ app.route('/goods')
         goods = JSON.parse(goods);
         var newTovar = {};
         newTovar.id = +req.body.id;
-        newTovar.name = req.body.name;
+        newTovar.Company = req.body.Company;
         newTovar.price = req.body.price;
-        newTovar.description = req.body.description;
+        newTovar.description = req.body.Description;
         newTovar.image = req.body.image;
         goods.push(newTovar);
         fs.writeFile('public/goods.json', JSON.stringify(goods), 'utf8', function (err) {
@@ -99,6 +110,9 @@ app.route('/goods/:productId')
         }
         //res.send({productId: req.params.productId});
     });
+app.get('*', function(req, res){
+    res.sendfile('public/index.html');
+});
 
 // var express = require('express'),
 //     app = express();

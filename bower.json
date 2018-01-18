@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "angular": "1.6.3"
+    "angular": "1.6.3",
+    "ngMeta": "^1.0.2"
   },
   "devDependencies": {
     "qunit": "^2.3.2"

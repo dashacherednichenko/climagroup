@@ -25,7 +25,7 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
             };
             vm.checkCart();
 
-            console.log('содержимое корзини',vm.cart);
+            console.log('содержимое корзины',vm.cart);
 
             vm.showBasket = function () {
                 if($.isEmptyObject(vm.cart)){
@@ -39,7 +39,9 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
                     for (vm.key in vm.cart) {
                         var basketItem = {};
                         basketItem.id = vm.goods[vm.key - 1].id;
-                        basketItem.name = vm.goods[vm.key - 1].name;
+                        basketItem.model = vm.goods[vm.key - 1].Model;
+                        basketItem.Type = vm.goods[vm.key - 1].Type;
+                        basketItem.Company = vm.goods[vm.key - 1].Company;
                         basketItem.price = vm.goods[vm.key - 1].price;
                         basketItem.image = vm.goods[vm.key - 1].image;
                         basketItem.number = vm.cart[vm.key.valueOf(vm.key)];
@@ -90,7 +92,7 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
                 if(vm.cart[vm.articul.valueOf(vm.key)]>1)
                 {vm.cart[vm.articul.valueOf(vm.key)]--}
                 else
-                {if(confirm('Удалить '+vm.goods[id-1].name+ ' с корзины?')){
+                {if(confirm('Удалить '+vm.goods[id-1].Model+ ' с корзины?')){
 
                     delete vm.cart[vm.articul.valueOf(vm.key)];
                 } else {
@@ -109,7 +111,7 @@ App.controller('basketCtrl', function ($scope, $http,$rootScope, goods, cart) {
             };
             vm.deleteGoods=function (id) {
                 vm.articul = id;
-                {if(confirm('Удалить '+vm.goods[id-1].name+ ' с корзины?')){
+                {if(confirm('Удалить '+vm.goods[id-1].Type+' '+vm.goods[id-1].Company+' '+vm.goods[id-1].Model+ ' с корзины?')){
 
                     delete vm.cart[vm.articul.valueOf(vm.key)];
                 } else {

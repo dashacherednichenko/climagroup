@@ -1,26 +1,76 @@
 <div ng-controller="one_productCtrl as prodCtrl">
-
-    <h2 class="page-header">{{prodCtrl.onePrPaint.name}}</h2><br>
+    <div class="crumbs">
+        <a href="/">На главную</a>
+        >
+        <a itemprop="url" href="/product">
+            <span itemprop="title">Каталог товаров</span>
+        </a>
+        >
+        <span itemprop="title">{{prodCtrl.onePrPaint.Type}} {{prodCtrl.onePrPaint.Company}}-{{prodCtrl.onePrPaint.Model}}</span>
+    </div>
+    <h1>{{prodCtrl.onePrPaint.Type}} {{prodCtrl.onePrPaint.Company}}-{{prodCtrl.onePrPaint.Model}}</h1><br>
     <div>
-        <img id="item_photo" src="{{prodCtrl.onePrPaint.image}}" alt="">
-        <div class="catalogueItemDescription">{{prodCtrl.onePrPaint.description}}</div>
+        <div class="detail-img">
+            <div class="detail-img-thumbs">
+                <div class="details-img-slider">
+
+
+                    <div class="slider-at" id="go_top" ng-if="prodCtrl.topArrow">
+                        <a ng-click="prodCtrl.scrollDiv(-25)" href="" class="sprite-side slider-at-link" name="controls" data-direction="left">&#9650;</a>
+                    </div>
+                    <div class="slider-ab" ng-if="prodCtrl.downArrow">
+                        <a ng-click="prodCtrl.scrollDiv(25)" href="" class="sprite-side slider-ab-link" name="controls" data-direction="right">&#9660;</a>
+                    </div>
+
+                    <div class="slider-inner-h detail-img-thumbs-slider" id="idSlider-inner-h">
+                        <div class="detail-img-thumbs-l" id="slider">
+                            <div></div>
+                            <div class="detail-img-thumbs-l-i" name="scroll-element"
+                                 ng-repeat="goods_images in prodCtrl.good_images track by $index"
+                                 ng-class="{'active': $first }">
+                                <a ng-click="prodCtrl.l_image($event.currentTarget, goods_images)" href="">
+                                    <img class="detail-img-thumbs-l-i-link" ng-src="{{goods_images}}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <figure class="detail-img-inner">
+                <div id="detail_image_container">
+                    <img src="{{prodCtrl.onePrPaint.image[0]}}" name="base_image" alt="">
+                </div>
+                <a class="prev" ng-click="prodCtrl.plusSlides(-1)">&#10094</a>
+                <a class="next" ng-click="prodCtrl.plusSlides(1)">&#10095</a>
+            </figure>
+
+
+
+
+        </div>
+        <div class="catalogueItemDescription">
+            {{prodCtrl.onePrPaint.Description}}
+        </div>
 
         <toast>
         </toast>
         <div class="catalogueItemBuy">
             <ul class="reset">
                 <li class="">
-                    <div class="price">Ціна: {{prodCtrl.onePrPaint.price}} грн.</div>
+                    <div class="price">Цена: {{prodCtrl.onePrPaint.price}} грн.</div>
                     <div class="catalogueItemBuyValue">
-                        <e>Кількість:</e>
+                        <e>К-ство:</e>
                         <button data-art="{{items.id}}" class="minus" ng-click="prodCtrl.minusGoodsOneProd()">-</button>
                         <input type="text" id="count" value="1" class="countValue" data-shop="quantity">
                         <button class="plus" ng-click="prodCtrl.plusGoodsOneProd()">+</button>
                     </div>
 
                     <div class="buy">
-                        <button data-art="{{items.id}}" class="addCart" ng-click="prodCtrl.addProductToCartClick(items.id, items.price)">Додати до кошика</button>
-                </div>
+                        <button data-art="{{items.id}}" class="addCart" ng-click="prodCtrl.addProductToCartClick(items.id, items.price, items.Model, items.Type, items.Company)">
+                            Купить
+                        </button>
+                    </div>
 
                 </li>
             </ul>

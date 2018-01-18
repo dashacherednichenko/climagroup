@@ -1,7 +1,15 @@
 /**
  * Created by dashacherednichenko on 21.03.17.
  */
-
+$('document').ready(function () {
+    loadGoods();
+});
+function loadGoods() {
+    //loading goods on a page
+    $.getJSON('goods.json', function (data) {
+        console.log('data', data);
+    })
+}
 
 
 // getElementsById('loadingImg')var xhr = new XMLHttpRequest();

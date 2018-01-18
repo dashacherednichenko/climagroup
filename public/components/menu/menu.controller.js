@@ -1,7 +1,7 @@
 /**
  * Created by dashacherednichenko on 22.03.17.
  */
-App.controller('menuCtrl',function($scope, $rootScope, cart){
+App.controller('menuCtrl',function($scope, $rootScope, $location, cart){
     var vm = this;
     cart.getGoodsInCart();
     $scope.$watch(function () {
@@ -15,22 +15,36 @@ App.controller('menuCtrl',function($scope, $rootScope, cart){
     vm.menuLinks = [
         {
             name:"Каталог товаров",
-            link:'#!/goods',
-            img: '../../images/icons/menu.png'
+            link:'/product',
+            img: '../../images/icons/menu.png',
+            extraLinks: [
+                {
+                    name:"Бытовые кондиционеры",
+                    link:'/product/byt',
+                },
+                {
+                    name:"Полупромышленные кондиционеры",
+                    link:'/product',
+                },
+                {
+                    name:"Воздушные завесы",
+                    link:'/goods',
+                }
+            ]
         },
         {
             name:"Монтаж и обслуживание",
-            link:'#!/services',
+            link:'/services',
             img: '../../images/icons/service.png'
         },
         {
             name:"О нас",
-            link:'#!/about',
-            img: '../../images/icons/about.png'
+            link:'/about',
+            img: '../../images/icons/about.png',
         },
         {
             name:"Контакты",
-            link:'#!/call-back',
+            link:'/call-back',
             img: '../../images/icons/contact.png'
         }
 
@@ -38,43 +52,30 @@ App.controller('menuCtrl',function($scope, $rootScope, cart){
     vm.menuTopLinks = [
         {
             name:"Мой кабинет",
-            link:'#!/my_account',
+            link:'/my_account',
             img: '../../images/icons/account.png',
             extraLinks: [
                 {
                     name:"Личные данные",
-                    link:'#!/my_account'
+                    link:'/my_account'
                 },
                 {
                     name:"Список заказов",
-                    link:'#!/my_account'
+                    link:'/my_account'
                 },
                 {
                     name:"Выход",
-                    link:'#!/my_account'
+                    link:'/my_account'
                 },
             ]
         },
         {
             name:'Корзина',
-            link:'#!/basket',
+            link:'/basket',
             img: '../../images/icons/basket.png'
         },
     ]
-    vm.myAcc = [
-        {
-            name:"Личные данные",
-            link:'#!/my_account'
-        },
-        {
-            name:"Список заказов",
-            link:'#!/my_account'
-        },
-        {
-            name:"Выход",
-            link:'#!/my_account'
-        },
-    ]
+
     vm.testVar = 'Test varible';
     var test = 'test';
 
@@ -103,7 +104,8 @@ App.controller('menuCtrl',function($scope, $rootScope, cart){
     //     }
     //     }
     // vm.showSpanOrder();
-
+    console.log('$location.url()', $location.url());
+    console.log('$location.search()', $location.search());
 
 
     $(document).ready(function(){

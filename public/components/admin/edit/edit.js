@@ -5,17 +5,22 @@ App.controller('editCtrl', function ($scope, $http, $rootScope, $routeParams, ca
         var vm = this;
         var strOnePrPaint = JSON.stringify(vm.onePrPaint);
         var newProd = {};
-        newProd.image =document.getElementById('imgLogo').src;
+
 
         console.log('$routeParams.id', $routeParams.id);
         goods.getProduct($routeParams.id).then(function (res) {
             vm.onePrPaint = res;
+            vm.good_images = vm.onePrPaint.image;
+            newProd.image =vm.onePrPaint.image;
+            console.log('newProd.image', newProd.image)
             console.log('Product1', vm.onePrPaint);
-            if  (vm.onePrPaint.id) {
+            if  (good_images.lenght>0) {
                 document.getElementById('inputFile').style.display="none"
             } else {
                 document.getElementById('inputFile').style.display="inline-block"
-            }
+            };
+
+
         })
 
         goods.getGoods().then(function (res) {
@@ -26,10 +31,10 @@ App.controller('editCtrl', function ($scope, $http, $rootScope, $routeParams, ca
         vm.saveChanges = function () {
             console.log(strOnePrPaint)
             newProd.id = vm.onePrPaint.id;
-            newProd.name   = document.getElementsByName('title')[0].value;
+            newProd.Company   = document.getElementsByName('Company')[0].value;
             newProd.price = document.getElementsByName('price')[0].value;
-            newProd.description = document.getElementsByName('intro')[0].value;
-            newProd.image =document.getElementById('imgLogo').src;
+            newProd.Description = document.getElementsByName('intro')[0].value;
+            // newProd.image =document.getElementById('imgLogo').src;
             console.log('newProd', newProd.image)
 
 
@@ -37,13 +42,13 @@ App.controller('editCtrl', function ($scope, $http, $rootScope, $routeParams, ca
                 if (document.getElementById('inputFile').files[0]!= undefined) {
                     var imgfilename = document.getElementById('inputFile').files[0].name;
                     $('#imgLogo').attr('src', 'http://localhost:8881/images/goods/' + imgfilename);
-                    newProd.image =document.getElementById('imgLogo').src;
+                    // newProd.image =document.getElementById('imgLogo').src;
                 }
                 $.ajax({
                     dataType: 'json',
                     type: 'POST',
                     data: newProd,
-                    url: 'http://localhost:8881/goods/'+newProd.id,
+                    url: 'http://localhost:8881/product/'+newProd.id,
                     beforeSend: function() {
                         console.log('send')
                     },
@@ -65,14 +70,14 @@ App.controller('editCtrl', function ($scope, $http, $rootScope, $routeParams, ca
                 if (document.getElementById('inputFile').files[0]!= undefined) {
                     var imgfilename = document.getElementById('inputFile').files[0].name;
                     $('#imgLogo').attr('src', 'http://localhost:8881/images/goods/' + imgfilename);
-                    newProd.image =document.getElementById('imgLogo').src;
+                    // newProd.image =document.getElementById('imgLogo').src;
                 }
                 newProd.id = $routeParams.id;
                 $.ajax({
                     dataType: 'json',
                     type: 'POST',
                     data: newProd,
-                    url: 'http://localhost:8881/goods',
+                    url: 'http://localhost:8881/product',
                     beforeSend: function() {
                         console.log('send')
                     },

@@ -9,7 +9,7 @@ App.service('cart', function (goods) {
     }
     service.getGoodsInCart = function () {
         goodsInCart = [];
-        service.sum =0;
+        service.sum = 0;
         if (JSON.parse(localStorage.getItem('vm.cart'))) {
             cart = JSON.parse(localStorage.getItem('vm.cart'))
         }
@@ -24,7 +24,10 @@ App.service('cart', function (goods) {
                     }
                 });
             };
-            console.log(service.sum);
+            console.log('service.sum', service.sum);
+            console.log('vm.cart', cart);
+            console.log('goods', allGoods[0].price);
+
         })
 
     }

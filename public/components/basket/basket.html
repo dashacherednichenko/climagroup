@@ -1,12 +1,14 @@
 <div id="myCart" ng-controller="basketCtrl as bk">
     <div class="crumbs">
-        <a href="#!/" class="crumbs__l crumbs__l_home">На главную</a>
+        <a href="#!/">На главную</a>
         >
-        <a itemprop="url" href="#!/basket" class="crumbs__l"><span itemprop="title">Корзина покупок</span></a>
+        <!--<a itemprop="url" href="#!/basket" class="crumbs__l">-->
+            <span itemprop="title">Корзина покупок</span>
+        <!--</a>-->
     </div>
     <h1>{{bk.title}}
         <br>
-        <a href="#!/" style="display: none" id="backToMain">Вернуться на главную</a>
+        <a href="/" style="display: none" id="backToMain">Вернуться на главную</a>
     </h1>
     <div id="orderForm">
         <div class="orderLeft">
@@ -14,26 +16,26 @@
                  <li>
                      <button data-art="{{items.id}}" class="delete" ng-click="bk.deleteGoods(items.id)">x</button>
                      <a href="#!/product/{{items.id}}" ng-click="bk.testClickProd(items.id)">
-                         {{items.name}}
+                         {{items.Type}}{{items.Company}}{{items.model}}
                      </a>
                      <a href="#!/product/{{items.id}}" ng-click="bk.testClickProd(items.id)">
-                         <img ng-src="{{items.image}}" id="imgGoods" style="height: 100px"></img>
+                         <img ng-src="{{items.image[0]}}" id="imgGoods"></img>
                      </a>
-                     ціна, грн: {{items.price}}
+                     цена, грн: {{items.price}}
                      <button data-art="{{items.id}}" class="minus" ng-click="bk.minusGoods(items.id)">-</button>
-                     кількість,од-{{items.number}},
+                     {{items.number}}
                      <button data-art="{{items.id}}" class="plus" ng-click="bk.plusGoods(items.id)">+</button>
-                     всього: {{items.number*items.price}} грн
+                     всего: {{items.number*items.price}} грн
                  </li>
             </ul>
         <div id="totalPrice">
-            Загалом сумма заказа,грн: {{bk.orderPrice}}
+            Всего сумма заказа,грн: {{bk.orderPrice}}
         </div>
         </div>
         <div class="orderRight">
             <form name="orderFormRight" action="">
                 <label for="">
-                    <span>ПІБ</span>
+                    <span>ФИО</span>
                     <input type="text" id="order_form[name]" value="" required>
                     <!--<p id='err_fio' class='error'></p>-->
                 </label>
@@ -43,39 +45,39 @@
                     <!--<p id='err_phone' class='error'></p>-->
                 </label>
                 <label for="">
-                    <span>Електронна пошта</span>
+                    <span>Электронная почта</span>
                     <input type="email" id="order_form[email]" required>
                     <!--<p id='err_mail' class='error'></p>-->
 
                 </label>
                 <label for="">
-                    <span>Адреса доставки</span>
+                    <span>Адрес доставки</span>
                     <input type="text" id="order_form[address]" required>
                     <!--<p id='err_address' class='error'></p>-->
                 </label>
                 <label for="">
-                    <span>Спосіб доставки</span>
+                    <span>Способ доставки</span>
                     <select>
-                        <option value="1">Нова Пошта</option>
-                        <option value="2">Кур'єром</option>
-                        <option value="3">Інша служба доставки (вкажіть в побажаннях)</option>
+                        <option value="1">Новая Почта</option>
+                        <option value="2">Курьером</option>
+                        <option value="3">Другая служба доставки (укажите в пожеланиях)</option>
                     </select>
                 </label>
                 <label for="">
                     <span>Оплата</span>
                     <select>
-                        <option value="1">Готівка кур'єру (оплата при одержанні)</option>
+                        <option value="1">Наличные курьеру (оплата при получении)</option>
                         <option value="2">Передоплата</option>
-                        <option value="3">Наложений платіж</option>
+                        <option value="3">Наложеный платеж</option>
                     </select>
                 </label>
                 <label for="">
-                    <span>Побажання до замовлення</span>
+                    <span>Пожелания к заказу</span>
                     <textarea></textarea>
                 </label>
                 <label for="">
                     <span></span>
-                    <button type="submit" class="buyOrder" ng-click="bk.onClickOrder()">Оформити замовлення</button>
+                    <button type="submit" class="buyOrder" ng-click="bk.onClickOrder()">Оформить заказ</button>
                 </label>
              </form>
         </div>
